@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,10 +50,21 @@ public class CuartaPantalla extends AppCompatActivity {
         Picasso.get().load("https://i.pinimg.com/736x/8a/0c/54/8a0c541afe9c51db74dd48ad4128de59.jpg").into(img5);
         Picasso.get().load("https://i.pinimg.com/1200x/2b/69/7b/2b697b3ca95261438b09f664823b9e4a.jpg").into(img6);
 
-        btnRegresar.setOnClickListener(v -> {
-            Intent intent = new Intent(CuartaPantalla.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cerrarsesion();
+            }
         });
+    }
+
+    private void cerrarsesion() {
+        editor.clear();
+        editor.commit();
+
+        Intent i = new Intent(CuartaPantalla.this, MainActivity.class);
+        startActivity(i);
+
+        finish();
     }
 }

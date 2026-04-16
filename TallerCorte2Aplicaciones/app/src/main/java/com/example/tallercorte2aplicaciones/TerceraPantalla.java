@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,10 +50,21 @@ public class TerceraPantalla extends AppCompatActivity {
         Picasso.get().load("https://i.pinimg.com/736x/c5/b1/33/c5b1334281f0922a4a72c1989f4613fa.jpg").into(img5);
         Picasso.get().load("").into(img6);
 
-        btnRegresar.setOnClickListener(v -> {
-            Intent intent = new Intent(TerceraPantalla.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cerrarsesion();
+            }
         });
+    }
+
+    private void cerrarsesion() {
+        editor.clear();
+        editor.commit();
+
+        Intent i = new Intent(TerceraPantalla.this, MainActivity.class);
+        startActivity(i);
+
+        finish();
     }
 }

@@ -53,8 +53,18 @@ public class SegundaPantalla extends AppCompatActivity {
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                cerrarsesion();
             }
         });
+    }
+
+    private void cerrarsesion() {
+        editor.clear();
+        editor.commit();
+
+        Intent i = new Intent(SegundaPantalla.this, MainActivity.class);
+        startActivity(i);
+
+        finish();
     }
 }
