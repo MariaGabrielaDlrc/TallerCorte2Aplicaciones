@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 
 public class TerceraPantalla extends AppCompatActivity {
 
-    public static final String dataUserCache = "UserCache";
+    public static final String dataUserCache = "datos_usuario";
     private static final int modo_private = Context.MODE_PRIVATE;
 
     SharedPreferences sharedPreferences;
@@ -28,7 +28,7 @@ public class TerceraPantalla extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cuarta_pantalla);
+        setContentView(R.layout.activity_tercera_pantalla);
 
         btnRegresar = findViewById(R.id.btnRegresar);
 
@@ -48,7 +48,7 @@ public class TerceraPantalla extends AppCompatActivity {
         Picasso.get().load("https://i.pinimg.com/736x/3b/da/cc/3bdacccbd47c06dbf60e5bfa1b6e1c88.jpg").into(img3);
         Picasso.get().load("https://i.pinimg.com/736x/d3/54/bb/d354bb4b90c4ef6666b2b556d9e79486.jpg").into(img4);
         Picasso.get().load("https://i.pinimg.com/736x/c5/b1/33/c5b1334281f0922a4a72c1989f4613fa.jpg").into(img5);
-        Picasso.get().load("").into(img6);
+        Picasso.get().load("https://i.pinimg.com/1200x/bd/b0/08/bdb0089d1db7c8757b75f68245fbfe93.jpg").into(img6);
 
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +60,7 @@ public class TerceraPantalla extends AppCompatActivity {
 
     private void cerrarsesion() {
         editor.clear();
-        editor.commit();
+        editor.apply();
 
         Intent i = new Intent(TerceraPantalla.this, MainActivity.class);
         startActivity(i);

@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String dataUserCache = " ";
+    public static final String dataUserCache = "datos_usuario";
     private static final int modo_private = Context.MODE_PRIVATE;
 
     SharedPreferences sharedPreferences;
@@ -68,9 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(MainActivity.this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
 
-                    Intent i = new Intent(MainActivity.this, SegundaPantalla.class);
-                    startActivity(i);
-                    finish();
+                    abrirPantallaPorCategoria(categoria);
                 }
             }
         });
@@ -78,11 +76,29 @@ public class MainActivity extends AppCompatActivity {
 
     private void validarLogin() {
         String user = sharedPreferences.getString("user", "0");
+        String categoria = sharedPreferences.getString("categoria", "");
 
         if (!user.equalsIgnoreCase("0")) {
-            Intent i = new Intent(MainActivity.this, SegundaPantalla.class);
-            startActivity(i);
-            finish();
+            abrirPantallaPorCategoria(categoria);
         }
+    }
+
+    private void abrirPantallaPorCategoria(String categoria) {
+        Class<?> destination;
+        switch (categoria) {
+            case "Cine":
+                destination = CuartaPantalla.class;
+                break;
+            case "Música":
+                destination = TerceraPantalla.class;
+                break;
+            case "Deportes":
+            default:
+                destination = SegundaPantalla.class;
+                break;
+        }
+        Intent i = new Intent(MainActivity.this, destination);
+        startActivity(i);
+        finish();
     }
 }

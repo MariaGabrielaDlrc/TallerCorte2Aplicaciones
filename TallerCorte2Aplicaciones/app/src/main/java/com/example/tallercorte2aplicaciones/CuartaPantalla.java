@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 
 public class CuartaPantalla extends AppCompatActivity {
 
-    public static final String dataUserCache = "UserCache";
+    public static final String dataUserCache = "datos_usuario";
     private static final int modo_private = Context.MODE_PRIVATE;
 
     SharedPreferences sharedPreferences;
@@ -60,7 +60,7 @@ public class CuartaPantalla extends AppCompatActivity {
 
     private void cerrarsesion() {
         editor.clear();
-        editor.commit();
+        editor.apply();
 
         Intent i = new Intent(CuartaPantalla.this, MainActivity.class);
         startActivity(i);
