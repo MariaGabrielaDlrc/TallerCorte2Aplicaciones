@@ -48,8 +48,7 @@ public class TerceraPantalla extends AppCompatActivity {
         Picasso.get().load("https://i.pinimg.com/736x/3b/da/cc/3bdacccbd47c06dbf60e5bfa1b6e1c88.jpg").into(img3);
         Picasso.get().load("https://i.pinimg.com/736x/d3/54/bb/d354bb4b90c4ef6666b2b556d9e79486.jpg").into(img4);
         Picasso.get().load("https://i.pinimg.com/736x/c5/b1/33/c5b1334281f0922a4a72c1989f4613fa.jpg").into(img5);
-        Picasso.get().load("https://i.pinimg.com/1200x/bd/b0/08/bdb0089d1db7c8757b75f68245fbfe93.jpg").into(img6);
-
+        Picasso.get().load("https://i.pinimg.com/1200x/cd/6f/14/cd6f14fe814d902b5207472549fc9ddc.jpg").into(img6);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
