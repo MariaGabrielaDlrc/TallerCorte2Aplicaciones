@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String dataUserCache = "datos_usuario"; // nombre correcto
+    public static final String dataUserCache = " ";
     private static final int modo_private = Context.MODE_PRIVATE;
 
     SharedPreferences sharedPreferences;
